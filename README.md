@@ -1,4 +1,4 @@
-# King-Of-The-Blockchain
+# King Of The Blockchain
 "King of the Blockchain" is a game where the players can become the leader by sending more tokens than the current leader did previously. 
 
 
@@ -38,4 +38,4 @@ To know the amount to beat to become the new leader, call the `amountToBeat` fun
 
 ## Note
 
-Please test and verify this contract thoroughly before using it in a production environment. It's made for educational purposes and doesn't consider any safety measures like reentrancy guards.
+Please test and verify this contract thoroughly before using it in a production environment.
