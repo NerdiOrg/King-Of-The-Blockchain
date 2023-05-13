@@ -1,5 +1,5 @@
 # King Of The Blockchain
-"King of the Blockchain" is a game where the players can become the leader by sending more tokens than the current leader did previously. 
+"King of the Blockchain" is a game where the players can become the leader by sending more tokens than the current leader did previously. There is no withdraw function and the deploying user cannot manage or use funds. All tokens sent to the contract to secure the leader position are considered lost / burned / stuck. This Solidity smart contract game is for entertainment and educational purposes only.
 
 
 
