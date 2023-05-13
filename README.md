@@ -31,4 +31,4 @@ Additionally, the contract emits a `NewLeader` event every time a new leader eme
 
 ## Important
 
-This contract is a simple game and is not intended for serious use. Always be cautious when interacting with Tokenseum smart contracts. This contract should be audited by a professional security firm before being used on mainnet.
+This contract is a simple game and is not intended for serious use. Always be cautious when interacting with smart contracts. This contract should be audited by a professional security firm before being used on mainnet.
