@@ -5,37 +5,30 @@
 
 ## Contract Details
 
-The contract includes the following state variables:
+The contract holds the following state variables:
 
-- `leader`: the address of the current leader.
-- `currentValue`: the amount of Wei the current leader sent.
-- `history`: a mapping to store the address and amount sent by each player.
-- `playerIndex`: an index to track the order of the players.
+- `leader`: The current leader's address.
+- `currentValue`: The current highest amount of Tokens sent to the contract.
 
-Upon deployment, the contract deployer becomes the initial leader with a `currentValue` of 0. 
+And the following functions:
 
-Any address can call the `becomeLeader` function and if they send more Wei than the `currentValue`, they become the new leader. 
+- `becomeLeader()`: Any address (except the current leader) can become the new leader by sending an amount of Tokens higher than `currentValue`. The amount of Tokens is sent along with the transaction as `msg.value`.
+- `whoisLeader()`: This function returns the address of the current leader.
+- `amountToBeat()`: This function returns the current highest amount of Tokens. To become the new leader, a player has to send more than this amount.
 
-The history of leaders and their respective values is stored in the `history` mapping.
-
-The `NewLeader` event is emitted whenever a new leader is set.
-
-## Functions
-
-- `becomeLeader`: This function is used to become the new leader. You need to send more Wei than the current leader.
-
-- `whoisLeader`: This function returns the address of the current leader.
-
-- `amountToBeat`: This function returns the amount that needs to be sent to become the new leader, which is the current highest amount sent to the contract.
+Additionally, the contract emits a `NewLeader` event every time a new leader emerges.
 
 ## Usage
 
-To become a leader, call the `becomeLeader` function with a value higher than the current value.
+1. To become the leader, call `becomeLeader()` with a value of Tokens higher than the current `currentValue`. You can check the `currentValue` by calling `amountToBeat()`.
+2. To check the current leader, call `whoisLeader()`.
+3. If you send Tokens directly to the contract's address without calling a function, the `becomeLeader()` function will be triggered thanks to the `receive()` function.
 
-To know the current leader, call the `whoisLeader` function.
+## Rules
 
-To know the amount to beat to become the new leader, call the `amountToBeat` function.
+1. The current leader cannot become the leader again immediately. They must wait for someone else to become the leader first.
+2. There is no way to withdraw Tokens from the contract in the current design. Please be aware of this before interacting with the contract.
 
-## Note
+## Important
 
-Please test and verify this contract thoroughly before using it in a production environment.
+This contract is a simple game and is not intended for serious use. Always be cautious when interacting with Tokenseum smart contracts. This contract should be audited by a professional security firm before being used on mainnet.
